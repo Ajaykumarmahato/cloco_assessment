@@ -6,7 +6,7 @@
         <div class="row login-div ">
 
             <div class="col-lg-12 p-2">
-                <form action="{{ route('login') }}" method="POST" class="form-control p-3">
+                <form action="{{ route('login') }}" id="login-form" method="POST" class="form-control p-3">
                     @csrf
                     <div class="form-group d-flex justify-content-center">
                         <h3>LOGIN</h3>
@@ -28,12 +28,11 @@
                         @enderror
                     </div>
                     <button type="submit" class="btn btn-success mt-4 form-control">Login</button>
+                    <div class="d-flex justify-content-center">
+                        <a href="{{ route('register') }}" class="text-decoration-none mt-3">Register Here!</a>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 @endsection
-
-@push('scripts')
-    <script></script>
-@endpush
