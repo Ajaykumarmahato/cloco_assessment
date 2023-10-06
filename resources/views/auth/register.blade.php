@@ -107,7 +107,7 @@
                     </div>
                     <button type="submit" class="btn btn-success mt-4 form-control">Submit</button>
                     <div class="d-flex justify-content-center">
-                        <a href="{{ route('login') }}" class="text-decoration-none mt-3">Login!</a>
+                        <a href="{{ route('welcome') }}" class="text-decoration-none mt-3">Login!</a>
                     </div>
                 </form>
             </div>

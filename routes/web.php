@@ -17,8 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if (Auth::user()) {
+        return redirect()->route('home');
+    }
     return view('frontend.login.login');
 })->name('welcome');
+
 Route::post('/register-user', [RegisterController::class, 'register'])->name('registerUser');
 
 
@@ -26,3 +30,9 @@ Route::post('/register-user', [RegisterController::class, 'register'])->name('re
 Auth::routes();
 
 Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
+    Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
+        Route::group(['prefix' => 'sliders', 'as' => 'sliders.'], function () {
+        });
+    });
+});
